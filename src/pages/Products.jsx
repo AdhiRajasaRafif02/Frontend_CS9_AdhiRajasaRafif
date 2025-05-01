@@ -9,7 +9,7 @@ function Products() {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const res = await fetch('http://localhost:3000/item/')
+        const res = await fetch('https://backend-cs-9-adhi-rajasa-rafif-bay.vercel.app/items')
         const data = await res.json()
         setProducts(data.payload || [])
         setLoading(false)
@@ -37,7 +37,7 @@ function Products() {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/transaction/create", {
+      const res = await fetch("https://backend-cs-9-adhi-rajasa-rafif-bay.vercel.app/transaction/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

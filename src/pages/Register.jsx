@@ -14,7 +14,7 @@ function Register() {
     e.preventDefault()
 
     try {
-      const res = await fetch('http://localhost:3000/user/register', {
+      const res = await fetch('https://backend-cs-9-adhi-rajasa-rafif-bay.vercel.app/user/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

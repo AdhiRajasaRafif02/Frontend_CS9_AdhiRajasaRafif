@@ -16,12 +16,12 @@ function Cart() {
 
       try {
         // 🔹 Ambil user terbaru dari backend
-        const userRes = await fetch(`http://localhost:3000/user/byEmail/${localUser.email}`)
+        const userRes = await fetch(`https://backend-cs-9-adhi-rajasa-rafif-bay.vercel.app/user/byEmail/${localUser.email}`)
         const userData = await userRes.json()
         setUser(userData.payload)
 
         // 🔹 Ambil transaksi dari backend
-        const trxRes = await fetch("http://localhost:3000/transaction/")
+        const trxRes = await fetch("https://backend-cs-9-adhi-rajasa-rafif-bay.vercel.app/transaction/")
         const trxData = await trxRes.json()
 
         const filtered = trxData.payload.filter(
@@ -41,7 +41,7 @@ function Cart() {
 
   const handlePay = async (transactionId) => {
     try {
-      const res = await fetch(`http://localhost:3000/transaction/pay/${transactionId}`, {
+      const res = await fetch(`https://backend-cs-9-adhi-rajasa-rafif-bay.vercel.app/transaction/pay/${transactionId}`, {
         method: "POST"
       })
       const data = await res.json()
@@ -51,7 +51,7 @@ function Cart() {
         setTransactions((prev) => prev.filter((t) => t.id !== transactionId))
 
         // 🔄 Refresh saldo user
-        const userRes = await fetch(`http://localhost:3000/user/byEmail/${user.email}`)
+        const userRes = await fetch(`https://backend-cs-9-adhi-rajasa-rafif-bay.vercel.app/user/byEmail/${user.email}`)
         const userData = await userRes.json()
         setUser(userData.payload)
       } else {
